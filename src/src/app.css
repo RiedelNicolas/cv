@@ -5,21 +5,20 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.preact:hover {
-  filter: drop-shadow(0 0 2em #673ab8aa);
+.nameTitle{
+  font-size: 3rem;
+  font-weight: 150;
+  font-family: roboto;
 }
 
-.card {
-  padding: 2em;
+.nameSubtitle{
+  font-size: 1.5rem;
+  font-weight: 100;
+  margin-bottom: 1rem;
 }
 
-.read-the-docs {
-  color: #888;
+.avatarContainer{
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
