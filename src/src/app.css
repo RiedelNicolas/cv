@@ -42,3 +42,10 @@
   margin-left: 0.25rem !important;
   margin-right: 0.25rem !important;
 }
+
+@media (max-width: 600px) {
+  #app {
+    padding: 0.5rem;
+    padding-bottom: 1rem;
+  }
+}
