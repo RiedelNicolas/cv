@@ -1,7 +1,7 @@
 import { Avatar, Container, Link, Paper } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 
-import { LinkedIn, GitHub } from '@mui/icons-material';
+import { LinkedIn, GitHub, Email } from '@mui/icons-material';
 
 
 
@@ -47,6 +47,9 @@ export function App() {
             </div>
 
             <div className="profile_description_footer">
+              <Link href="mailto:nariedel99@gmail.com" className="social_link" target="_blank" rel="noopener noreferrer">
+                <Email fontSize="large"/>
+              </Link>
               <Link href="https://www.linkedin.com/in/nicol%C3%A1s-riedel-9b2617171" className="social_link" target="_blank" rel="noopener noreferrer">
                 <LinkedIn fontSize="large"/>
               </Link>
