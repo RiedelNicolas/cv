@@ -1,21 +1,7 @@
-import { Avatar, Button, Chip, Container, Link, Paper } from "@mui/material";
+import { Avatar, Button, Container, Link, Paper } from "@mui/material";
 import { LinkedIn, GitHub, Email, OpenInNew } from '@mui/icons-material';
 import Grid from '@mui/material/Grid2';
 import "./Resume.css";
-
-const SKILLS = [
-    "TypeScript",
-    "React Native",
-    "Node.js",
-    "React",
-    "Docker",
-    "Java (Spring Boot)",
-    "SQL",
-    "Python",
-    "CI/CD",
-    "Linux",
-    "Firebase",
-];
 
 export const Resume = () => {
 
@@ -55,12 +41,6 @@ export const Resume = () => {
                     <p>
                     I also teach at <b>Universidad de Buenos Aires (UBA)</b>, where I graduated in <b>Software Engineering</b> in December 2025.
                     </p>
-                </div>
-
-                <div className="skills">
-                    {SKILLS.map((skill) => (
-                    <Chip key={skill} label={skill} size="small" className="skill_chip" />
-                    ))}
                 </div>
 
                 <div className="cv_link">

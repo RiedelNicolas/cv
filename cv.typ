@@ -5,9 +5,8 @@
   continue-header: "false",
   name: "Nicolás Riedel",
   address: "Buenos Aires, Argentina",
-  lastupdated: "true",
+  lastupdated: "false",
   pagecount: "true",
-  date: "2026-09-09",
   contacts: (
     (text: "LinkedIn", link: "https://www.linkedin.com/in/nariedel/"),
     (text: "Github", link: "https://github.com/RiedelNicolas"),
