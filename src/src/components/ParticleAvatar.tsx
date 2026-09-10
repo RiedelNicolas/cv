@@ -31,6 +31,15 @@ const SHOVE = 0.08;
 // crosses the canvas edge invisible instead of popping in along the rectangle.
 const FADE_SPAN = 0.45;
 
+// On a dark page the hard circular edge is what reads as a plate stuck on top.
+// Fading by radius dissolves the rim instead, so the portrait sinks into the
+// page. Geometric on purpose: fading by brightness was tried first and failed
+// -- the wall and the lit face overlap in luminance, so it ate the cheeks and
+// left the wall, and transparency over black darkens a pixel rather than
+// removing it, which turned the face muddy.
+const VIGNETTE_IN = 0.55;
+const VIGNETTE_OUT = 1.0;
+
 const VERTEX = `
   attribute vec3 aScatter;
   attribute vec3 aColor;
@@ -40,6 +49,7 @@ const VERTEX = `
   uniform float uReach;
   uniform float uShove;
   uniform float uFadeSpan;
+  uniform vec2 uVignette;
   varying vec3 vColor;
   varying float vAlpha;
 
@@ -49,6 +59,7 @@ const VERTEX = `
 
     // Measured before the repel, so pushing a particle aside does not fade it.
     vAlpha = 1.0 - smoothstep(0.0, uFadeSpan, length(position - p));
+    vAlpha *= 1.0 - smoothstep(uVignette.x, uVignette.y, length(position.xy));
 
     // Repelling as a pure function of the distance to the cursor means there
     // is no per-particle velocity to store, and so no simulation to step on
@@ -158,6 +169,7 @@ export function ParticleAvatar() {
           uReach: { value: REACH },
           uShove: { value: SHOVE },
           uFadeSpan: { value: FADE_SPAN },
+          uVignette: { value: new THREE.Vector2(VIGNETTE_IN, VIGNETTE_OUT) },
         };
         const material = new THREE.ShaderMaterial({
           vertexShader: VERTEX,
