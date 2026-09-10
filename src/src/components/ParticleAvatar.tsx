@@ -29,7 +29,13 @@ const SHOVE = 0.08;
 // A particle fades in over the last stretch of its trip home. Visibility is
 // tied to how far it still has to travel, not to where it is on screen, so it
 // crosses the canvas edge invisible instead of popping in along the rectangle.
-const FADE_SPAN = 0.45;
+//
+// This has a ceiling. A particle whose home is at the top of the circle (y = 1)
+// crosses the frustum edge (y = 1.3) only 0.3 from home, so a span past that
+// makes it visible on the boundary and the rectangle comes back. Hence 0.3, and
+// hence the drop heights below are short: the way to show more of the fall is a
+// shorter trip, not a longer fade.
+const FADE_SPAN = 0.3;
 
 // On a dark page the hard circular edge is what reads as a plate stuck on top.
 // Fading by radius dissolves the rim instead, so the portrait sinks into the
@@ -111,9 +117,14 @@ function sampleImage(img: HTMLImageElement) {
       home.push(dx / radius, -dy / radius, 0);
       colors.push(px[i] / 255, px[i + 1] / 255, px[i + 2] / 255);
 
-      const angle = Math.random() * Math.PI * 2;
-      const dist = 1.1 + Math.random() * 0.9;
-      scatter.push(Math.cos(angle) * dist, Math.sin(angle) * dist, 0);
+      // Start above home with a little sideways drift, so the field falls into
+      // place in the same direction as the rain behind it. The varied drop
+      // heights do the staggering for free: a particle only becomes visible in
+      // the last FADE_SPAN of its trip, and a longer drop covers that stretch
+      // later, so they land scattered in time instead of as one curtain.
+      const drop = 0.5 + Math.random() * 0.9;
+      const drift = (Math.random() - 0.5) * 0.3;
+      scatter.push(dx / radius + drift, -dy / radius + drop, 0);
     }
   }
 
