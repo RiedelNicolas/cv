@@ -14,11 +14,17 @@ const ASSEMBLE_MS = 1400;
 // (raise) or muddy (lower) after changing STEP.
 const POINT_SCALE = 1.5;
 
-// How the cursor pushes. World units, where the face has radius 1, so REACH
-// 0.45 is a pocket a bit under half the face wide. Both are meant to be tuned
-// by eye -- how much "making way" reads as deliberate is not a calculation.
+// How the cursor pushes. World units, where the face has radius 1. Both are
+// meant to be tuned by eye -- how much "making way" reads as deliberate is not
+// a calculation.
+//
+// The pocket comes out star-shaped, and that is wanted. Particles sit on a
+// square grid, so pushing them radially piles them into a thin ring whose
+// 4-fold symmetry shows. Jittering the sample positions rounds the pocket off,
+// but it also breaks the tiling and speckles the face at rest -- so the grid,
+// and the star, stay.
 const REACH = 0.45;
-const SHOVE = 0.15;
+const SHOVE = 0.08;
 
 const VERTEX = `
   attribute vec3 aScatter;
