@@ -58,3 +58,13 @@
 .cv_link_button{
   font-family: "space mono", monospace !important;
 }
+
+/* The disc has radius 1 inside a frustum of 1.3, so the canvas runs 1.3x
+   wider than the old 256px avatar to land the face at the same size. The
+   extra margin is transparent, and it widens the area that repels. */
+.particleAvatar{
+  display: block;
+  width: 91vw;
+  max-width: 333px;
+  aspect-ratio: 1;
+}
