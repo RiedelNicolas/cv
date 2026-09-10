@@ -26,6 +26,11 @@ const POINT_SCALE = 1.5;
 const REACH = 0.45;
 const SHOVE = 0.08;
 
+// A particle fades in over the last stretch of its trip home. Visibility is
+// tied to how far it still has to travel, not to where it is on screen, so it
+// crosses the canvas edge invisible instead of popping in along the rectangle.
+const FADE_SPAN = 0.45;
+
 const VERTEX = `
   attribute vec3 aScatter;
   attribute vec3 aColor;
@@ -34,11 +39,16 @@ const VERTEX = `
   uniform float uPointSize;
   uniform float uReach;
   uniform float uShove;
+  uniform float uFadeSpan;
   varying vec3 vColor;
+  varying float vAlpha;
 
   void main() {
     vColor = aColor;
     vec3 p = mix(aScatter, position, uProgress);
+
+    // Measured before the repel, so pushing a particle aside does not fade it.
+    vAlpha = 1.0 - smoothstep(0.0, uFadeSpan, length(position - p));
 
     // Repelling as a pure function of the distance to the cursor means there
     // is no per-particle velocity to store, and so no simulation to step on
@@ -56,9 +66,10 @@ const VERTEX = `
 
 const FRAGMENT = `
   varying vec3 vColor;
+  varying float vAlpha;
   void main() {
     if (length(gl_PointCoord - vec2(0.5)) > 0.5) discard; // round points
-    gl_FragColor = vec4(vColor, 1.0);
+    gl_FragColor = vec4(vColor, vAlpha);
   }
 `;
 
@@ -146,11 +157,15 @@ export function ParticleAvatar() {
           uPointSize: { value: 2 },
           uReach: { value: REACH },
           uShove: { value: SHOVE },
+          uFadeSpan: { value: FADE_SPAN },
         };
         const material = new THREE.ShaderMaterial({
           vertexShader: VERTEX,
           fragmentShader: FRAGMENT,
           uniforms,
+          transparent: true,
+          // Every particle sits at z = 0, so there is nothing to sort.
+          depthWrite: false,
         });
         scene.add(new THREE.Points(geometry, material));
 
