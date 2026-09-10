@@ -189,7 +189,10 @@ export function ParticleAvatar() {
         window.addEventListener("pointermove", onMove);
         document.addEventListener("pointerleave", onLeave);
 
-        const started = performance.now();
+        // Not const: a click rewinds it, which replays the assemble.
+        let started = performance.now();
+        const onPress = () => { started = performance.now(); };
+        canvas.addEventListener("pointerdown", onPress);
         const mouse = uniforms.uMouse.value;
         const tick = () => {
           frame = requestAnimationFrame(tick);
@@ -206,6 +209,7 @@ export function ParticleAvatar() {
           observer.disconnect();
           window.removeEventListener("pointermove", onMove);
           document.removeEventListener("pointerleave", onLeave);
+          canvas.removeEventListener("pointerdown", onPress);
           geometry.dispose();
           material.dispose();
           renderer.dispose();
