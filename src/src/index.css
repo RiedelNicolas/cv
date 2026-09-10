@@ -1,6 +1,5 @@
 :root {
   --bg: #0d0d0f;
-  --grid: #1b1b21;
   --ink: #e8e6e3;
   --dim: #96938c;
   --line: #2c2c35;
@@ -11,24 +10,17 @@
 html, body {
   height: 100%;
   margin: 0;
-}
-
-/* A 50px grid, drawn rather than tiled: this replaced a base64 PNG plus four
-   vendor-prefixed copies of the keyframes, one of which was never used. */
-body {
   background-color: var(--bg);
-  background-image:
-    repeating-linear-gradient(to right,
-      var(--grid), var(--grid) 1px, transparent 1px, transparent 50px),
-    repeating-linear-gradient(to bottom,
-      var(--grid), var(--grid) 1px, transparent 1px, transparent 50px);
-  animation: grid-drift 8s linear infinite;
 }
 
-@keyframes grid-drift {
-  to { background-position: 50px 50px, 50px 50px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  body { animation: none; }
+/* The rain canvas is the background. It renders inside #app, so it needs a
+   negative z-index to sit behind its siblings rather than over them; #app's own
+   z-index keeps it from falling behind the page. And it must never intercept a
+   click -- the avatar above it is interactive. */
+.matrixRain {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  display: block;
 }
