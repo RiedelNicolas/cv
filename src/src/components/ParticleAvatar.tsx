@@ -14,12 +14,20 @@ const ASSEMBLE_MS = 1400;
 // (raise) or muddy (lower) after changing STEP.
 const POINT_SCALE = 1.5;
 
+// How the cursor pushes. World units, where the face has radius 1, so REACH
+// 0.45 is a pocket a bit under half the face wide. Both are meant to be tuned
+// by eye -- how much "making way" reads as deliberate is not a calculation.
+const REACH = 0.45;
+const SHOVE = 0.28;
+
 const VERTEX = `
   attribute vec3 aScatter;
   attribute vec3 aColor;
   uniform vec2 uMouse;
   uniform float uProgress;
   uniform float uPointSize;
+  uniform float uReach;
+  uniform float uShove;
   varying vec3 vColor;
 
   void main() {
@@ -29,9 +37,11 @@ const VERTEX = `
     // Repelling as a pure function of the distance to the cursor means there
     // is no per-particle velocity to store, and so no simulation to step on
     // the CPU -- 16k particles cost nothing per frame.
+    // GLSL smoothstep is undefined for edge0 >= edge1, so the falloff has to
+    // be written the way round the spec allows and then inverted.
     vec2 away = p.xy - uMouse;
-    float force = smoothstep(0.30, 0.0, length(away)) * 0.18;
-    p.xy += normalize(away + vec2(0.0001)) * force;
+    float falloff = 1.0 - smoothstep(0.0, uReach, length(away));
+    p.xy += normalize(away + vec2(0.0001)) * falloff * uShove;
 
     gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
     gl_PointSize = uPointSize;
@@ -128,6 +138,8 @@ export function ParticleAvatar() {
           uMouse: { value: new THREE.Vector2(99, 99) }, // offscreen: no force
           uProgress: { value: 0 },
           uPointSize: { value: 2 },
+          uReach: { value: REACH },
+          uShove: { value: SHOVE },
         };
         const material = new THREE.ShaderMaterial({
           vertexShader: VERTEX,
@@ -149,14 +161,25 @@ export function ParticleAvatar() {
         resize();
 
         const target = new THREE.Vector2(99, 99);
+        let seenPointer = false;
         const onMove = (event: PointerEvent) => {
           const box = canvas.getBoundingClientRect();
           target.set(
             (((event.clientX - box.left) / box.width) * 2 - 1) * FRUSTUM,
             -(((event.clientY - box.top) / box.height) * 2 - 1) * FRUSTUM,
           );
+          // Snapping the first time: lerping in from the offscreen sentinel
+          // would drag a shove straight across the face on the way.
+          if (!seenPointer) {
+            seenPointer = true;
+            uniforms.uMouse.value.copy(target);
+          }
         };
-        const onLeave = () => target.set(99, 99);
+        const onLeave = () => {
+          seenPointer = false;
+          target.set(99, 99);
+          uniforms.uMouse.value.set(99, 99);
+        };
         window.addEventListener("pointermove", onMove);
         document.addEventListener("pointerleave", onLeave);
 
