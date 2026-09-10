@@ -31,7 +31,7 @@ export const Resume = () => {
                     </p>
 
                     <p>
-                    I'm currently a <b>Mobile Engineer at Mendel</b>, a B2B Fintech, working with <b>React Native</b>.
+                    I'm currently a <b>Mobile Engineer at Mendel</b>, a B2B Fintech, working with <b>React Native</b> and <b>Java Spring Boot</b>.
                     </p>
 
                     <p>
