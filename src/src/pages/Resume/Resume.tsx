@@ -31,7 +31,7 @@ export const Resume = () => {
                     </p>
 
                     <p>
-                    I'm currently a <b>Mobile Engineer at Mendel</b>, a B2B Fintech, working with <b>React Native</b> and <b>Java Spring Boot</b> on the BFF layer.
+                    I'm currently a <b>Mobile Engineer at Mendel</b>, a B2B Fintech, working with <b>React Native</b>.
                     </p>
 
                     <p>
@@ -39,7 +39,7 @@ export const Resume = () => {
                     </p>
 
                     <p>
-                    I also teach at <b>Universidad de Buenos Aires (UBA)</b>, where I graduated in <b>Software Engineering</b> in December 2025.
+                    I also teach at <b>Universidad de Buenos Aires (UBA)</b>, where I graduated in <b>Software Engineering</b>.
                     </p>
                 </div>
 
