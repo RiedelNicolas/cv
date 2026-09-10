@@ -49,3 +49,20 @@
     padding-bottom: 2rem;
   }
 }
+.skills{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.cv_link{
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* MUI ships Roboto on these; the page is Space Mono */
+.skill_chip, .cv_link_button{
+  font-family: "space mono", monospace !important;
+}

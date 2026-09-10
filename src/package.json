@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "cv": "typst compile ../cv.typ public/Nicolas-Riedel-CV.pdf",
     "build": "tsc -b && vite build",
     "preview": "vite preview"
   },
