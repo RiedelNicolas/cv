@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "preact/hooks";
+import { BG, GREEN, RAIN_TRAIL } from "../palette";
 
 // ASCII only: the page is Space Mono, which has no katakana, so the iconic
 // half-width glyphs would come out as tofu.
@@ -8,10 +9,6 @@ const FPS = 18; // falling type does not need 60, and this is a background
 const TRAIL = 0.085; // how much of the ground is painted back each frame
 const RESPAWN = 0.975; // chance a column that ran off the bottom keeps falling
 const PRIME_FRAMES = 90; // arrive mid-storm instead of watching it start empty
-
-const BG = "#0d0d0f";
-const DIM = "#2c4434";
-const HEAD = "#7fae8b";
 
 export function MatrixRain() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -43,9 +40,9 @@ export function MatrixRain() {
       for (let i = 0; i < heads.length; i++) {
         const x = i * CELL;
         const y = heads[i] * CELL;
-        ctx.fillStyle = HEAD;
+        ctx.fillStyle = GREEN;
         ctx.fillText(glyph(), x, y);
-        ctx.fillStyle = DIM;
+        ctx.fillStyle = RAIN_TRAIL;
         ctx.fillText(glyph(), x, y - CELL);
 
         heads[i] =

@@ -1,5 +1,7 @@
+/* Mirrors palette.ts, which the MUI theme and the rain canvas both read. */
 :root {
   --bg: #0d0d0f;
+  --green: #7fae8b;
   --ink: #e8e6e3;
   --dim: #96938c;
   --line: #2c2c35;
