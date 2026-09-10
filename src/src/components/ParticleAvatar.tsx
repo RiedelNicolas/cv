@@ -18,7 +18,7 @@ const POINT_SCALE = 1.5;
 // 0.45 is a pocket a bit under half the face wide. Both are meant to be tuned
 // by eye -- how much "making way" reads as deliberate is not a calculation.
 const REACH = 0.45;
-const SHOVE = 0.28;
+const SHOVE = 0.15;
 
 const VERTEX = `
   attribute vec3 aScatter;
