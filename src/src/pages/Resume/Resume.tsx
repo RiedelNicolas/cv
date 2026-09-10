@@ -1,8 +1,7 @@
-import { Avatar, Container, Link, Paper } from "@mui/material";
-import { LinkedIn, GitHub, Email } from '@mui/icons-material';
+import { Avatar, Button, Container, Link, Paper } from "@mui/material";
+import { LinkedIn, GitHub, Email, OpenInNew } from '@mui/icons-material';
 import Grid from '@mui/material/Grid2';
 import "./Resume.css";
-
 
 export const Resume = () => {
 
@@ -13,7 +12,7 @@ export const Resume = () => {
                 <div className="nameTitle">Nicolás Riedel</div>
             </Grid>
             <Grid size={12}>
-                <div className="nameSubtitle">Software Developer</div>
+                <div className="nameSubtitle">Software Engineer</div>
             </Grid>
             <Grid size={12}>
                 <div class="avatarContainer">
@@ -26,29 +25,42 @@ export const Resume = () => {
             <Grid size={{ xs: 12, md: 8, lg: 8 }}>
                 <Paper elevation={10} className="profile_description_card">
                 <div className="profile_description">
-                    
+
                     <p>
-                    Hi! I'm Nicolás, a software developer based in <b>Buenos Aires, Argentina</b>.
+                    Hi! I'm Nicolás, a software engineer based in <b>Buenos Aires, Argentina</b>.
                     </p>
 
                     <p>
-                    <b>I have experience working across the entire stack, using multiple technologies and programming languages</b>.
+                    I'm currently a <b>Mobile Engineer at Mendel</b>, a B2B Fintech, working with <b>React Native</b> and <b>Java Spring Boot</b>.
                     </p>
 
                     <p>
-                    In the present, I am working primarly with Typescript, ReactJS, React Native and NodeJS, but I'm always open to use what is necessary to get the job done.
+                    <b>I have experience working across the entire stack, using multiple technologies and programming languages</b>, and I'm always open to use what is necessary to get the job done.
                     </p>
 
                     <p>
-                    Additionally, I teach at <b>Universidad de Buenos Aires (UBA)</b>, where I am completing my final courses in <b>Software Engineering</b>.
+                    I also teach at <b>Universidad de Buenos Aires (UBA)</b>, where I graduated in <b>Software Engineering</b>.
                     </p>
+                </div>
+
+                <div className="cv_link">
+                    <Button
+                    variant="outlined"
+                    href="/Nicolas-Riedel-CV.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    startIcon={<OpenInNew />}
+                    className="cv_link_button"
+                    >
+                    View full CV
+                    </Button>
                 </div>
 
                 <div className="profile_description_footer">
                     <Link href="mailto:nariedel99@gmail.com" className="social_link" target="_blank" rel="noopener noreferrer">
                     <Email fontSize="large"/>
                     </Link>
-                    <Link href="https://www.linkedin.com/in/nicol%C3%A1s-riedel-9b2617171" className="social_link" target="_blank" rel="noopener noreferrer">
+                    <Link href="https://www.linkedin.com/in/nariedel/" className="social_link" target="_blank" rel="noopener noreferrer">
                     <LinkedIn fontSize="large"/>
                     </Link>
                     <Link href="https://github.com/RiedelNicolas" className="social_link" target="_blank" rel="noopener noreferrer">
