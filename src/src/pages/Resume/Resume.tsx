@@ -1,6 +1,7 @@
-import { Avatar, Button, Container, Link, Paper } from "@mui/material";
+import { Button, Container, Link, Paper } from "@mui/material";
 import { LinkedIn, GitHub, Email, OpenInNew } from '@mui/icons-material';
 import Grid from '@mui/material/Grid2';
+import { ParticleAvatar } from "../../components/ParticleAvatar";
 import "./Resume.css";
 
 export const Resume = () => {
@@ -16,10 +17,7 @@ export const Resume = () => {
             </Grid>
             <Grid size={12}>
                 <div class="avatarContainer">
-                <Avatar
-                    src="/profile.png"
-                    id="avatarElement"
-                />
+                <ParticleAvatar />
                 </div>
             </Grid>
             <Grid size={{ xs: 12, md: 8, lg: 8 }}>
