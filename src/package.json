@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "cv": "typst compile ../cv.typ public/Nicolas-Riedel-CV.pdf",
+    "cv:academic": "typst compile ../cv-academic.typ public/Nicolas-Riedel-Academic-CV.pdf",
     "build": "tsc -b && vite build",
     "preview": "vite preview"
   },

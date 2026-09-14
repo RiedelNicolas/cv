@@ -1,6 +1,6 @@
 # CV/Resume
 
-My CV in two forms: a [Preact](https://preactjs.com/) site and a PDF.
+My CV in two forms: a [Preact](https://preactjs.com/) site and PDFs.
 
 ## The site
 
@@ -13,16 +13,24 @@ yarn build    # -> src/dist
 
 Deployed on Vercel.
 
-## The PDF
+## The PDFs
 
-`cv.typ` is the source. It compiles with [Typst](https://typst.app) into
-`src/public/Nicolas-Riedel-CV.pdf`, which the site links as *View full CV*:
+Two Typst sources, two PDFs:
+
+| Source | PDF | Build |
+| --- | --- | --- |
+| `cv.typ` | `src/public/Nicolas-Riedel-CV.pdf` | `yarn cv` |
+| `cv-academic.typ` | `src/public/Nicolas-Riedel-Academic-CV.pdf` | `yarn cv:academic` |
+
+`cv.typ` is the industry CV, which the site links as *View full CV*.
+`cv-academic.typ` is the academic version. They share the industry
+experience — keep those bullets in sync when either changes.
 
 ```
 cd src && yarn cv    # needs: brew install typst
 ```
 
-The PDF is committed, so edit `cv.typ`, re-run `yarn cv` and commit both
+The PDFs are committed, so edit the `.typ`, re-run the build and commit both
 together.
 
 One catch: Typst resolves the `PT Serif` font against the system. Without it

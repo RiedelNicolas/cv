@@ -105,4 +105,4 @@
   location: "Argentina",
 )
 
-#set document(author: "Nicolás Riedel", title: "Nicolás Riedel CV")
+#set document(author: "Nicolás Riedel", title: "Nicolás Riedel Academic CV")
