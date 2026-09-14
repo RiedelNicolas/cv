@@ -20,7 +20,24 @@
 
 #sectionsep
 
-// Experience
+// Academic Experience
+#section("Academic Experience")
+
+#job(
+  position: "Teaching Assistant",
+  institution: [University of Buenos Aires (UBA)],
+  location: "Buenos Aires, Argentina",
+  date: "Aug 2018 – Present",
+  description: [
+    - Plan and deliver technical lessons for key Engineering courses: #strong[Algorithms and Programming I], #strong[Software Engineering I], and #strong[Introduction to Software Development].
+    - Preparation and grading of exams and practical assignments for Engineering courses.
+    - Development of a web platform for automated delivery and grading of assignments.
+  ],
+)
+
+#sectionsep
+
+// Professional Experience
 #section("Experience")
 
 #job(
@@ -58,18 +75,6 @@
     - Executed the full-stack migration of an institutional management system for a #strong[top-tier university], transitioning legacy Oracle Forms logic into a modern web paradigm.
     - Optimized and maintained the #strong[Oracle SQL] database, ensuring data consistency and performance throughout the architectural shift.
     - Redesigned complex administrative modules serving #strong[thousands of students], delivering an intuitive and responsive experience that significantly reduced the technical friction of the legacy system.
-  ],
-)
-
-#job(
-  position: "Teaching Assistant",
-  institution: [University of Buenos Aires (UBA)],
-  location: "Buenos Aires, Argentina",
-  date: "Aug 2018 – Present",
-  description: [
-    - Preparation and grading of exams and practical assignments for Engineering courses.
-    - Planning and teaching of lessons.
-    - Development of a web platform for automated delivery and grading of assignments.
   ],
 )
 

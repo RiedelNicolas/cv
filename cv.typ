@@ -67,8 +67,8 @@
   location: "Buenos Aires, Argentina",
   date: "Aug 2018 – Present",
   description: [
+    - Plan and deliver technical lessons for key Engineering courses: #strong[Algorithms and Programming I], #strong[Software Engineering I], and #strong[Introduction to Software Development].
     - Preparation and grading of exams and practical assignments for Engineering courses.
-    - Planning and teaching of lessons.
     - Development of a web platform for automated delivery and grading of assignments.
   ],
 )
