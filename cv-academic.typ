@@ -80,24 +80,9 @@
 
 #sectionsep
 
-// Skills
-#section("Skills")
-#oneline-title-item(
-  title: "Proficient",
-  content: [TypeScript, React Native, Node.js, React, Docker, Firebase, Linux],
-)
-#oneline-title-item(
-  title: "Competent",
-  content: [Java (Spring Boot), SQL, Python, FastAPI, CI/CD],
-)
-#oneline-title-item(
-  title: "Foundational",
-  content: [MongoDB, Kubernetes (K8s), AWS, AI Fundamentals, Data Science],
-)
-#oneline-title-item(
-  title: "Languages",
-  content: [Spanish (Native), English (Advanced / C1)],
-)
+// Languages
+#section("Languages")
+#descript[Spanish (Native), English (Advanced / C1)]
 
 #sectionsep
 

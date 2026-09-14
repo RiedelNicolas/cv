@@ -67,32 +67,16 @@
   location: "Buenos Aires, Argentina",
   date: "Aug 2018 – Present",
   description: [
-    - Plan and deliver technical lessons for key Engineering courses: #strong[Algorithms and Programming I], #strong[Software Engineering I], and #strong[Introduction to Software Development].
-    - Preparation and grading of exams and practical assignments for Engineering courses.
+    - Plan and teach lessons, and grade exams and practical assignments, for #strong[Algorithms and Programming I], #strong[Software Engineering I] and #strong[Introduction to Software Development].
     - Development of a web platform for automated delivery and grading of assignments.
   ],
 )
 
 #sectionsep
 
-// Skills
-#section("Skills")
-#oneline-title-item(
-  title: "Proficient",
-  content: [TypeScript, React Native, Node.js, React, Docker, Firebase, Linux],
-)
-#oneline-title-item(
-  title: "Competent",
-  content: [Java (Spring Boot), SQL, Python, FastAPI, CI/CD],
-)
-#oneline-title-item(
-  title: "Foundational",
-  content: [MongoDB, Kubernetes (K8s), AWS, AI Fundamentals, Data Science],
-)
-#oneline-title-item(
-  title: "Languages",
-  content: [Spanish (Native), English (Advanced / C1)],
-)
+// Languages
+#section("Languages")
+#descript[Spanish (Native), English (Advanced / C1)]
 
 #sectionsep
 
