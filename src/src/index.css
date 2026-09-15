@@ -1,28 +1,150 @@
-/* Mirrors palette.ts, which the MUI theme and the rain canvas both read. */
-:root {
-  --bg: #0d0d0f;
-  --green: #7fae8b;
-  --ink: #e8e6e3;
-  --dim: #96938c;
-  --line: #2c2c35;
-  --card: #14141a;
-  --hard: #000000;
-}
-
-html, body {
-  height: 100%;
+body, html {
   margin: 0;
-  background-color: var(--bg);
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  scroll-behavior: smooth;
 }
 
-/* The rain canvas is the background. It renders inside #app, so it needs a
-   negative z-index to sit behind its siblings rather than over them; #app's own
-   z-index keeps it from falling behind the page. And it must never intercept a
-   click -- the avatar above it is interactive. */
-.matrixRain {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  display: block;
+#app {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.cv-container {
+  width: 100%;
+  max-width: 900px;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 40px;
+}
+
+pre {
+  margin: 0;
+  font-family: inherit;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.ascii-art {
+  font-size: 8px; /* small font for ascii art to fit */
+  line-height: 8px;
+  letter-spacing: 0px;
+  color: #888;
+  white-space: pre;
+}
+
+.section-title {
+  display: inline-block;
+  color: #fff;
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-bottom: 1px dashed #555;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.job-item {
+  margin-bottom: 30px;
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.job-title {
+  font-size: 16px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.job-company {
+  color: #aaa;
+}
+
+.job-date {
+  color: #888;
+  text-align: right;
+}
+
+.job-description {
+  color: #ccc;
+}
+
+.job-description p {
+  margin: 5px 0;
+}
+
+.job-description ul {
+  padding-left: 20px;
+  margin: 10px 0 0 0;
+  list-style-type: square;
+}
+
+.job-description li {
+  margin-bottom: 8px;
+}
+
+.contact-links {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.contact-links a {
+  color: #888;
+  text-decoration: none;
+  border-bottom: 1px solid #555;
+}
+
+.contact-links a:hover {
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}
+
+/* A blinking cursor effect */
+.cursor {
+  display: inline-block;
+  width: 10px;
+  height: 18px;
+  background-color: #fff;
+  vertical-align: middle;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.download-btn {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid #555;
+  padding: 10px 20px;
+  background-color: #222;
+  transition: all 0.2s;
+  font-weight: bold;
+}
+
+.download-btn:hover {
+  background-color: #fff;
+  color: #000;
+  border-color: #fff;
 }
