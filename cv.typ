@@ -67,7 +67,7 @@
   location: "Buenos Aires, Argentina",
   date: "Aug 2018 – Present",
   description: [
-    - Plan and teach lessons, and grade exams and practical assignments, for #strong[Algorithms and Programming I], #strong[Software Engineering I] and #strong[Introduction to Software Development].
+    - Plan and teach lessons, and grade exams and practical assignments, for #strong[Introduction to Software Development]. Previously taught #strong[Algorithms and Programming I] and #strong[Software Engineering I].
     - Development of a web platform for automated delivery and grading of assignments.
   ],
 )
