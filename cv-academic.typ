@@ -20,7 +20,24 @@
 
 #sectionsep
 
-// Experience
+// Academic Experience
+#section("Academic Experience")
+
+#job(
+  position: "Teaching Assistant",
+  institution: [University of Buenos Aires (UBA)],
+  location: "Buenos Aires, Argentina",
+  date: "Aug 2018 – Present",
+  description: [
+    - Plan and deliver technical lessons for #strong[Introduction to Software Development]. Previously taught #strong[Algorithms and Programming I] and #strong[Software Engineering I].
+    - Preparation and grading of exams and practical assignments for Engineering courses.
+    - Development of a web platform for automated delivery and grading of assignments.
+  ],
+)
+
+#sectionsep
+
+// Professional Experience
 #section("Experience")
 
 #job(
@@ -61,17 +78,6 @@
   ],
 )
 
-#job(
-  position: "Teaching Assistant",
-  institution: [University of Buenos Aires (UBA)],
-  location: "Buenos Aires, Argentina",
-  date: "Aug 2018 – Present",
-  description: [
-    - Plan and teach lessons, and grade exams and practical assignments, for #strong[Introduction to Software Development]. Previously taught #strong[Algorithms and Programming I] and #strong[Software Engineering I].
-    - Development of a web platform for automated delivery and grading of assignments.
-  ],
-)
-
 #sectionsep
 
 // Languages
@@ -89,4 +95,4 @@
   location: "Argentina",
 )
 
-#set document(author: "Nicolás Riedel", title: "Nicolás Riedel CV")
+#set document(author: "Nicolás Riedel", title: "Nicolás Riedel Academic CV")
