@@ -51,7 +51,7 @@ export function App() {
       </section>
 
       <footer>
-        <a href="/Nicolas-Riedel-CV.pdf" download className="pdf-link">
+        <a href="/Nicolas-Riedel-CV.pdf" download="Nicolas-Riedel-CV.pdf" className="pdf-link">
           Download CV (PDF)
         </a>
       </footer>
