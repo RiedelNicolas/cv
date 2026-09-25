@@ -47,11 +47,11 @@ export function App() {
 
       <section>
         <h2>Education</h2>
-        <p>Software Engineering, University of Buenos Aires <span className="muted">· Graduated Dec 2025</span></p>
+        <p>Software Engineering, University of Buenos Aires, graduated Dec 2025</p>
       </section>
 
       <footer>
-        <a href="/Nicolas-Riedel-CV.pdf" target="_blank" rel="noopener noreferrer" className="pdf-link">
+        <a href="/Nicolas-Riedel-CV.pdf" download className="pdf-link">
           Download CV (PDF)
         </a>
       </footer>

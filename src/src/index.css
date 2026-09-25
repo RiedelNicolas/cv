@@ -26,6 +26,7 @@ body {
 }
 
 .page {
+  box-sizing: content-box;
   max-width: 65ch;
   margin: 0 auto;
   padding: 96px 24px 80px;
