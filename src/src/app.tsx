@@ -1,35 +1,61 @@
 import './index.css';
 
+const experience = [
+  { role: 'Mobile Engineer', company: 'Mendel', dates: 'Nov 2024 – Present' },
+  { role: 'Software Developer', company: 'Creative Coefficient', dates: 'Jun 2022 – Nov 2024' },
+  { role: 'Software Developer', company: 'Tecnología y Desarrollo Informático', dates: 'Sept 2021 – Jun 2022' },
+  { role: 'Teaching Assistant', company: 'University of Buenos Aires (UBA)', dates: 'Aug 2018 – Present' },
+];
+
 export function App() {
   return (
-    <div className="cv-container">
-      <div>
-        <h1 style={{ margin: '0 0 10px 0', color: '#fff' }}>NICOLÁS RIEDEL</h1>
-        <div style={{ color: '#888' }}>Software Engineer • Buenos Aires, Argentina</div>
-        
-        <div className="contact-links" style={{ justifyContent: 'center', marginTop: '20px' }}>
+    <main className="page">
+      <header className="intro">
+        <h1>Nicolás Riedel</h1>
+        <p className="muted">Software Engineer · Buenos Aires, Argentina</p>
+        <nav className="links" aria-label="Contact">
           <a href="https://www.linkedin.com/in/nariedel/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="https://github.com/RiedelNicolas" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="mailto:nariedel99@gmail.com">Email</a>
-        </div>
-      </div>
+          <a href="/Nicolas-Riedel-CV.pdf" download="Nicolas-Riedel-CV.pdf">CV (PDF)</a>
+        </nav>
+      </header>
 
-      <div className="section-title">
-        ~/about<span className="cursor"></span>
-      </div>
-      
-      <div className="job-description">
-        <p>Hi! I'm Nicolás, a software engineer based in <b>Buenos Aires, Argentina</b>.</p>
-        <p>I'm currently a <b>Mobile Engineer at Mendel</b>, a B2B Fintech, working with <b>React Native</b> and <b>Java Spring Boot</b>.</p>
-        <p><b>I have experience working across the entire stack, using multiple technologies and programming languages</b>, and I'm always open to use what is necessary to get the job done.</p>
-        <p>I also teach at <b>Universidad de Buenos Aires (UBA)</b>, where I graduated in <b>Software Engineering</b>.</p>
-      </div>
+      <section className="bio">
+        <p>Hi! I'm Nicolás, a software engineer based in Buenos Aires, Argentina.</p>
+        <p>I'm currently a Mobile Engineer at Mendel, a B2B Fintech, working with React Native and Java Spring Boot.</p>
+        <p>I have experience working across the entire stack, using multiple technologies and programming languages, and I'm always open to use what is necessary to get the job done.</p>
+        <p>I also teach at Universidad de Buenos Aires (UBA), where I graduated in Software Engineering.</p>
+      </section>
 
-      <div style={{ marginTop: '20px' }}>
-        <a href="/Nicolas-Riedel-CV.pdf" target="_blank" rel="noopener noreferrer" className="download-btn">
-          [ View full CV (PDF) ]
+      <section>
+        <h2>Experience</h2>
+        <ul className="roles">
+          {experience.map(({ role, company, dates }) => (
+            <li key={`${role}-${company}`} className="role">
+              <span className="role-title">{role}</span>
+              <span className="muted dates">{dates}</span>
+              <span className="muted company">{company}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section>
+        <h2>Languages</h2>
+        <p>Spanish (native), English (C1)</p>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <p>Software Engineering, University of Buenos Aires, graduated Dec 2025</p>
+      </section>
+
+      <footer>
+        <a href="/Nicolas-Riedel-CV.pdf" download="Nicolas-Riedel-CV.pdf" className="pdf-link">
+          Download CV (PDF)
         </a>
-      </div>
-    </div>
+      </footer>
+    </main>
   );
 }

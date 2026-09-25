@@ -22,7 +22,7 @@ Two Typst sources, two PDFs:
 | `cv.typ` | `src/public/Nicolas-Riedel-CV.pdf` | `yarn cv` |
 | `cv-academic.typ` | `src/public/Nicolas-Riedel-Academic-CV.pdf` | `yarn cv:academic` |
 
-`cv.typ` is the industry CV, which the site links as *View full CV*.
+`cv.typ` is the industry CV, which the site links as *Download CV (PDF)*.
 `cv-academic.typ` is the academic version. They share the industry
 experience — keep those bullets in sync when either changes.
 
