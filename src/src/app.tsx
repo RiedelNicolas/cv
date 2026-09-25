@@ -17,6 +17,7 @@ export function App() {
           <a href="https://www.linkedin.com/in/nariedel/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="https://github.com/RiedelNicolas" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="mailto:nariedel99@gmail.com">Email</a>
+          <a href="/Nicolas-Riedel-CV.pdf" download="Nicolas-Riedel-CV.pdf">CV (PDF)</a>
         </nav>
       </header>
 
