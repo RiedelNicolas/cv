@@ -61,11 +61,13 @@ export function App() {
       <header className="intro">
         <h1>Nicolás Riedel</h1>
         <p className="muted">Software Engineer · Buenos Aires, Argentina</p>
-        <nav className="links" aria-label="Contact">
-          <a href="https://www.linkedin.com/in/nariedel/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://github.com/RiedelNicolas" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="mailto:nariedel99@gmail.com">Email</a>
-          <a href="/Nicolas-Riedel-CV.pdf" download="Nicolas-Riedel-CV.pdf">CV (PDF)</a>
+        <div className="links-row">
+          <nav className="links" aria-label="Contact">
+            <a href="https://www.linkedin.com/in/nariedel/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/RiedelNicolas" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="mailto:nariedel99@gmail.com">Email</a>
+            <a href="/Nicolas-Riedel-CV.pdf" download="Nicolas-Riedel-CV.pdf">CV (PDF)</a>
+          </nav>
           <button
             type="button"
             className="theme-toggle"
@@ -74,7 +76,7 @@ export function App() {
           >
             {isDark ? 'Light' : 'Dark'}
           </button>
-        </nav>
+        </div>
       </header>
 
       <section className="bio">

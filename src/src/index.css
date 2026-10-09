@@ -7,6 +7,7 @@
   color-scheme: light;
 }
 
+/* Dark values are duplicated here and in :root[data-theme='dark'] below; keep both blocks in sync. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
     --text: #ececec;
@@ -99,12 +100,17 @@ a:focus-visible {
   text-decoration-color: currentColor;
 }
 
+.links-row {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  margin-top: 16px;
+}
+
 .links {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  margin-top: 16px;
-  align-items: baseline;
 }
 
 .theme-toggle {
