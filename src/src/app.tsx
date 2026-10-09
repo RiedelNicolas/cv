@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'preact/hooks';
 import './index.css';
 
 const experience = [
@@ -7,7 +8,54 @@ const experience = [
   { role: 'Teaching Assistant', company: 'University of Buenos Aires (UBA)', dates: 'Aug 2018 – Present' },
 ];
 
+type Theme = 'light' | 'dark';
+
+function getSystemTheme(): Theme {
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+function getStoredTheme(): Theme | null {
+  try {
+    const stored = localStorage.getItem('theme');
+    return stored === 'light' || stored === 'dark' ? stored : null;
+  } catch {
+    return null;
+  }
+}
+
+function applyExplicitTheme(theme: Theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  document
+    .querySelectorAll('meta[name="theme-color"]')
+    .forEach((meta) => meta.setAttribute('content', theme === 'dark' ? '#111111' : '#ffffff'));
+}
+
 export function App() {
+  const [theme, setTheme] = useState<Theme>(() => getStoredTheme() ?? getSystemTheme());
+
+  // Follow system changes until the user makes an explicit choice.
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    const onChange = () => {
+      if (!document.documentElement.hasAttribute('data-theme')) setTheme(getSystemTheme());
+    };
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
+  const toggleTheme = () => {
+    const next: Theme = theme === 'dark' ? 'light' : 'dark';
+    applyExplicitTheme(next);
+    try {
+      localStorage.setItem('theme', next);
+    } catch {
+      /* storage unavailable: choice lasts for this page view only */
+    }
+    setTheme(next);
+  };
+
+  const isDark = theme === 'dark';
+
   return (
     <main className="page">
       <header className="intro">
@@ -18,6 +66,14 @@ export function App() {
           <a href="https://github.com/RiedelNicolas" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="mailto:nariedel99@gmail.com">Email</a>
           <a href="/Nicolas-Riedel-CV.pdf" download="Nicolas-Riedel-CV.pdf">CV (PDF)</a>
+          <button
+            type="button"
+            className="theme-toggle"
+            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+            onClick={toggleTheme}
+          >
+            {isDark ? 'Light' : 'Dark'}
+          </button>
         </nav>
       </header>
 

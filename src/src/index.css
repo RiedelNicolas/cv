@@ -3,6 +3,28 @@
   --muted: #6b6b6b;
   --rule: #d4d4d4;
   --bg: #fff;
+  --hover-bg: #f2f2f2;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --text: #ececec;
+    --muted: #9a9a9a;
+    --rule: #3a3a3a;
+    --bg: #111;
+    --hover-bg: #1f1f1f;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --text: #ececec;
+  --muted: #9a9a9a;
+  --rule: #3a3a3a;
+  --bg: #111;
+  --hover-bg: #1f1f1f;
+  color-scheme: dark;
 }
 
 *,
@@ -82,6 +104,33 @@ a:focus-visible {
   flex-wrap: wrap;
   gap: 20px;
   margin-top: 16px;
+  align-items: baseline;
+}
+
+.theme-toggle {
+  margin-left: auto;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.15s ease, color 0.15s ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  color: var(--text);
+  text-decoration-color: currentColor;
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
 }
 
 .bio p + p {
@@ -130,7 +179,7 @@ a:focus-visible {
 
 .pdf-link:hover,
 .pdf-link:focus-visible {
-  background-color: #f2f2f2;
+  background-color: var(--hover-bg);
 }
 
 @media (max-width: 480px) {
@@ -145,5 +194,9 @@ a:focus-visible {
   section,
   footer {
     margin-top: 40px;
+  }
+
+  .theme-toggle {
+    margin-left: 0;
   }
 }

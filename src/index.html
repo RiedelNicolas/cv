@@ -11,6 +11,22 @@
     <meta property="og:description" content="Software Engineer based in Buenos Aires, Argentina. Mobile Engineer at Mendel and Teaching Assistant at UBA." />
     <meta property="og:image" content="https://www.nriedel.com.ar/profile.png" />
 
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111111" />
+
+    <script>
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') {
+          document.documentElement.setAttribute('data-theme', t);
+          var metas = document.querySelectorAll('meta[name="theme-color"]');
+          for (var i = 0; i < metas.length; i++) {
+            metas[i].setAttribute('content', t === 'dark' ? '#111111' : '#ffffff');
+          }
+        }
+      } catch (e) {}
+    </script>
+
     <link
       rel="icon"
       href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🖱️</text></svg>"
